@@ -1,0 +1,6 @@
+*.o
+*.pd_darwin
+*.pd_linux
+*.dylib
+*.so
+tags
