@@ -17,24 +17,24 @@ proc tracker_apply {id} {
         [eval concat $$var_graph_height] \
         [eval concat $$var_graph_width] \
         \;]
-    pd $cmd
+    pdsend "$cmd"
 
     set cmd [concat $id set_saveflag \
         [eval concat $$var_saveflag] \
         \;]
-    pd $cmd
+    pdsend "$cmd"
 
     set ss [string trim [set $var_sym_send]]
-    if {$ss != {}} {pd [concat $id set_send $ss \;]}
+    if {$ss != {}} {pdsend "[concat $id set_send $ss \;]"}
 
     set rs [string trim [set $var_sym_recv]]
-    if {$rs != {}} {pd [concat $id set_recv $rs \;]}
+    if {$rs != {}} {pdsend "[concat $id set_recv $rs \;]"}
 }
  
 proc tracker_cancel {id} {
     set cmd [concat $id cancel \;]
     #puts stderr $cmd
-    pd $cmd
+    pdsend "$cmd"
 }
  
 proc tracker_ok {id} {
