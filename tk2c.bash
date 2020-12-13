@@ -17,7 +17,7 @@ do
 #this one's dirty, i know
        line=${line//;/\\\\;}
        line=${line//\"/\\\"}
-       echo 'sys_gui("'$line'\\n");'
+       printf "sys_gui(\"%s\\\n\");\n" "$line"
        break
     fi
   done
